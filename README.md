@@ -1,39 +1,28 @@
-# Deep Learning and Generative Models
+# Machine Learning and Graph Analysis
 
-This project explores deep learning techniques for image classification and generative models using PyTorch. The primary focus is on transfer learning, class imbalance handling, and generative models.
+This project explores various machine learning techniques, including supervised and unsupervised learning, as well as graph analysis using NetworkX. The primary focus is on text classification, dimensionality reduction, and community detection in graphs.
 
 ## Table of Contents
 
-- [Project Structure](#project-structure)
 - [Requirements](#requirements)
 - [Data Preparation](#data-preparation)
-- [Training Models](#training-models)
-- [Evaluating Models](#evaluating-models)
-- [Generative Models](#generative-models)
+- [Supervised Learning](#supervised-learning)
+- [Unsupervised Learning](#unsupervised-learning)
+- [Graph Analysis](#graph-analysis)
 - [Results](#results)
 
-## Project Structure
-
-```
-project/
-├── data/
-│   ├── chest_xray/
-│   │   ├── train/
-│   │   ├── val/
-│   │   └── test/
-
-```
 
 ## Requirements
 
 - Python 3.7+
-- PyTorch
 - NumPy
 - Pandas
+- Scikit-learn
 - Matplotlib
 - Seaborn
-- OpenCV
-- scikit-learn
+- NetworkX
+- python-louvain
+- powerlaw
 
 Install the required packages using:
 ```bash
@@ -42,50 +31,71 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-1. Download the dataset and place it in the `data/chest_xray` directory.
-2. The dataset should have the following structure:
-```
-data/
-└── chest_xray/
-    ├── train/
-    ├── val/
-    └── test/
-```
+1. Download the datasets and place them in the `data` directory.
+2. The datasets should include:
+   - `imdb_dataset.csv`: IMDB movie reviews dataset.
+   - `fruit_data_with_colors.txt`: Fruit dataset with color features.
+   - `hero-comic-network.csv`: Marvel hero-comic network dataset.
 
-## Training Models
+## Supervised Learning
 
-### 1. Transfer Learning
+### 1. Naive Bayes Classifier
 
-1. Load and explore the data.
-2. Address class imbalance using weighted sampling.
-3. Train a CNN model with more than 18 layers.
-4. Train a pre-trained ResNet50 model using transfer learning.
+1. Load and preprocess the IMDB dataset.
+2. Vectorize the text data using CountVectorizer.
+3. Train a Naive Bayes classifier on the training data.
+4. Evaluate the model on the test data and generate a classification report.
 
-### 2. Fine-tuning Models
+### 2. SVM Classifier
 
-1. Fine-tune the pre-trained ResNet50 model by unfreezing the last block and the fully connected layer.
+1. Load and preprocess the IMDB dataset.
+2. Vectorize the text data using CountVectorizer.
+3. Train an SVM classifier on the training data.
+4. Evaluate the model on the test data and generate a classification report.
 
-## Evaluating Models
+### 3. KNN Classifier
 
-1. Evaluate the trained models on the test set.
-2. Generate confusion matrices and classification reports.
+1. Load and preprocess the IMDB dataset.
+2. Vectorize the text data using CountVectorizer.
+3. Train a KNN classifier on the training data.
+4. Evaluate the model on the test data and generate a classification report.
 
-## Generative Models
+## Unsupervised Learning
 
-1. Load the CIFAR-10 dataset.
-2. Define the VQ-VAE model, including the encoder, VQEmbeddingEMA, and decoder.
-3. Train the VQ-VAE model.
-4. Evaluate the model and visualize reconstructions.
-5. Generate new images using the trained VQ-VAE model.
+### 1. Dimensionality Reduction
+
+1. Load the Breast Cancer and Fruit datasets.
+2. Apply PCA to reduce the dimensionality of the datasets.
+3. Visualize the PCA-transformed data.
+
+### 2. Manifold Learning
+
+1. Apply MDS and t-SNE to the Breast Cancer and Fruit datasets.
+2. Visualize the transformed data.
+
+## Graph Analysis
+
+### 1. Zachary's Karate Club
+
+1. Load and visualize the Zachary's Karate Club graph.
+2. Apply hierarchical clustering and visualize the dendrogram.
+3. Apply the Louvain method for community detection and visualize the communities.
+4. Apply the Girvan-Newman algorithm for community detection and evaluate the results.
+
+### 2. Marvel Universe Network
+
+1. Load and visualize the Marvel hero-comic network.
+2. Apply the Louvain method for community detection and visualize the communities.
 
 ## Results
 
-- The project demonstrates the effectiveness of transfer learning and fine-tuning in image classification tasks.
-- The VQ-VAE model successfully generates new images based on the learned embeddings.
+- The project demonstrates the effectiveness of various machine learning techniques for text classification and dimensionality reduction.
+- The graph analysis section showcases different community detection algorithms and their applications to real-world networks.
 
 ## Acknowledgments
 
-- The dataset used in this project is from [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia).
-- The VQ-VAE implementation is inspired by the original paper by Aaron van den Oord et al.
+- The IMDB dataset is from [Kaggle](https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews).
+- The fruit dataset is from [University of California, Irvine](https://archive.ics.uci.edu/ml/datasets/Fruit+Data+with+Colors).
+- The Marvel hero-comic network dataset is from [Kaggle](https://www.kaggle.com/csanhueza/the-marvel-universe-social-network).
 
 ```
